@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workout Plan - FitForge</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato&family=Merriweather&family=Poppins&family=Raleway&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header>
+      <nav class="navbar">
+        <div class="logo">FitForge</div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html" id="navHome">Home</a>
+          <a href="workout-plan.html" id="navPlan">My Plan</a>
+          <label class="dark-mode-toggle">
+            <input type="checkbox" id="darkModeToggle" />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="workout-container" id="workoutPage">
+        <h2>Your Personalized Workout Plan</h2>
+        <section>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <span class="progress-label" id="progressText">0% complete</span>
+        </section>
+        <section>
+          <div id="workoutList" class="workout-list"></div>
+        </section>
+
+        <button id="finishWorkout">Finish Workout</button>
+
+        <p id="motivation" class="hidden">Keep going, you're doing great!</p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2025 Codec Black. This project was created as a capstone.</p>
+      Connect with me:
+      <p>
+        <a href="#" target="_blank" rel="noopener">GitHub</a> |
+        <a href="https://x.com/Codec_blvck" target="_blank" rel="noopener">Twitter</a> |
+        <a href="https://www.linkedin.com/in/raphael-m-somtochkwu-47086332b" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
+    </footer>
+  </div>
+
+  <script src="./js/main.js" defer></script>
+  <script src="./js/workout.js" defer></script>
+</body>
+
+</html>

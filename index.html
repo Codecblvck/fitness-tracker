@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fitness Tracker</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato&family=Merriweather&family=Poppins&family=Raleway&display=swap"
+    rel="stylesheet">
+
+
+  <link rel="stylesheet" href="./css/styles.css" />
+
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header>
+      <nav class="navbar">
+        <div class="logo">FitForge</div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html" id="navHome">Home</a>
+          <a href="workout-plan.html" id="navPlan">My Plan</a>
+          <label class="dark-mode-toggle">
+            <input type="checkbox" id="darkModeToggle" />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </nav>
+    </header>
+
+    <main id="indexPage">
+      <section class="intro-section fade-slide-up">
+        <div class="intro-content">
+          <div class="greeting">
+            <h1>Welcome to <span class="highlight">FitForge</span></h1>
+            <p>Your journey to a healthier, stronger you starts here.</p>
+          </div>
+          <img src="./assets/images/svg/athletes-training.svg" alt="Fitness Icon" class="hero-img" />
+        </div>
+      </section>
+
+      <blockquote class="quote fade-slide-up">
+        “Push yourself because no one else is going to do it for you.”
+      </blockquote>
+
+      <section class="form-section">
+        <form id="user-form" class="user-form fade-slide-up">
+          <h2>Let’s personalize your journey</h2>
+
+          <label for="nickname">Your Nickname</label>
+          <input type="text" id="nickname" placeholder="e.g. FitJay" required />
+
+          <label for="goal">Select Your Fitness Goal</label>
+          <select id="goal" required>
+            <option value="">--Choose a goal--</option>
+            <option value="weight-loss">Lose Weight</option>
+            <option value="muscle-gain">Gain Muscle</option>
+            <option value="endurance">Build Endurance</option>
+            <option value="flexibility">Improve Flexibility</option>
+          </select>
+
+          <button type="submit">Generate Plan</button>
+        </form>
+      </section>
+
+      <section class="log fade-in">
+        <h2>Today’s Workout Log</h2>
+        <p id="todayLog">No workout logged yet.</p>
+      </section>
+
+      <section class="history fade-in">
+        <h2>Workout History</h2>
+        <ul id="historyList"></ul>
+      </section>
+      <section>
+        <dive class="calendar-section">
+          <h2>Workout Calendar</h2>
+          <table id="calendarTable">
+            <thead>
+              <tr>
+                <th colspan="7" id="calendarHeader"></th>
+              </tr>
+              <tr>
+                <th>Su</th>
+                <th>Mo</th>
+                <th>Tu</th>
+                <th>We</th>
+                <th>Th</th>
+                <th>Fr</th>
+                <th>Sa</th>
+              </tr>
+            </thead>
+            <tbody id="calendarBody">
+              <!-- JS will insert rows here -->
+            </tbody>
+          </table>
+  </div>
+
+  </section>
+
+  </div>
+  </main>
+  <footer class="site-footer">
+    <p>© 2025 Codec Black. This project was created as a capstone.</p>
+    <p>
+      Connect with me:
+      <a href="#" target="_blank" rel="noopener">GitHub</a> |
+      <a href="https://x.com/Codec_blvck" target="_blank" rel="noopener">Twitter</a> |
+      <a href="https://www.linkedin.com/in/raphael-m-somtochkwu-47086332b" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+  </footer>
+
+  </div>
+
+
+  <!-- Workout Day Popup -->
+  <div id="calendarPopup" class="popup-overlay hidden">
+    <div class="popup-content">
+      <span id="closePopup" class="close-btn">&times;</span>
+      <h3 id="popupDate">Workout on ...</h3>
+      <p id="popupGoal">Goal: ...</p>
+      <ul id="popupExercises"></ul>
+    </div>
+  </div>
+
+  <script src="./js/main.js" defer></script>
+  <script src="./js/quote.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fitness Plan Ready</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato&family=Merriweather&family=Poppins&family=Raleway&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header>
+      <nav class="navbar">
+        <div class="logo">FitForge</div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Home</a>
+          <a href="workout.html">My Plan</a>
+          <label class="dark-mode-toggle">
+            <input type="checkbox" id="darkModeToggle" />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </nav>
+    </header>
+    <main id="confirmationPage">
+      <div class="container">
+        <section>
+          <h1>Your Personalized Plan is Ready!</h1>
+          <h2>Congratulations!</h2>
+          <p>
+            Your personalized workout plan is ready to go. Check your daily
+            routine now!
+          </p>
+        </section>
+
+        <button class="confirm-btn" onclick="goToPlan()">Go to My Plan</button>
+        <p class="quote">Stay consistent, and results will follow.</p>
+        <div class="illustration">
+          <img src="./assets/images/png/weightlifting.png" alt="weightlifting icon" class="img" />
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2025 Codec Black. This project was created as a capstone.</p>
+      <p>
+        Connect with me:
+        <a href="#" target="_blank" rel="noopener">GitHub</a> |
+        <a href="https://x.com/Codec_blvck" target="_blank" rel="noopener">Twitter</a> |
+        <a href="https://www.linkedin.com/in/raphael-m-somtochkwu-47086332b" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
+    </footer>
+  </div>
+
+
+  <script src="./js/main.js" defer></script>
+</body>
+
+</html>
