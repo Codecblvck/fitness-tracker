@@ -66,8 +66,8 @@ Unizik Blockchain Lab (UBL) is an innovative tech initiative focused on training
 
 ### Links
 
-- Live Website: [https://yourgithubusername.github.io/fitforge/](https://yourgithubusername.github.io/fitforge/)
-- Repository: [https://github.com/yourgithubusername/fitforge](https://github.com/yourgithubusername/fitforge)
+- Live Website: [https://yourgithubusername.github.io/fitforge/](https://codecblvck.github.io/fitness-tracker/)
+- Repository: [https://github.com/yourgithubusername/fitforge](https://github.com/Codecblvck/fitness-tracker.git)
 
 ---
 
@@ -129,4 +129,4 @@ For now, I’m proud to have built this using just HTML, CSS, and JavaScript. I'
 Made with passion and discipline by **Codec-Bkvck**.
 
 - **LinkedIn**: [Raphael M. Somtochukwu](https://www.linkedin.com/in/raphael-m-somtochkwu-47086332b)
-- **Twitter**: a[@Codec_blvck](https://x.com/Codec_blvck)
+- **Twitter**: [@Codec_blvck](https://x.com/Codec_blvck)
