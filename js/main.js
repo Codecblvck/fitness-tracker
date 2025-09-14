@@ -56,24 +56,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Confirmation page loader
   if (document.getElementById("confirmationPage")) {
-    const container = document.querySelector(".container");
+    const container = document.querySelector(".confirming-msg");
     const nickname = localStorage.getItem("userNickname") || "Athlete";
     const goal = localStorage.getItem("userGoal") || "Not selected";
 
-    container.innerHTML = `<h1 class="loading-msg">Loading your personalized plan...</h1><div class="loader"></div>`;
+    container.innerHTML = `
+    <div class="bd-wrappe confirm-pg">
+      <h1>Loading your personalized plan...</h1>
+      <div class="loader"></div> 
+    </div>
+    `;
     setTimeout(() => {
       container.innerHTML = `
-        <div class="reveal">
+        <div class="reveal confirmed-msg">
           <h1>Welcome, <span class="highlight">${nickname}</span>!</h1>
           <h2>Your Personalized Plan is Ready!</h2>
           <p>Your fitness goal is: <strong>${goal.replace(
-            "-",
-            " "
-          )}</strong></p>
-          <button class="confirm-btn" onclick="goToPlan()">Go to My Plan</button>
+        "-",
+        " "
+      )}</strong></p>
+          <button class="confirm-btn btn" onclick="goToPlan()">Go to My Plan</button>
           <p class="quote">Stay consistent, and results will follow.</p>
           <div class="illustration">
-            <img src="./assets/images/png/weightlifting.png" alt="weightlifting icon" class="img" />
+            <img src="./assets/images/png/weightlifting.png" alt="weightlifting icon" class="img-icon" />
           </div>
         </div>
       `;
@@ -115,121 +120,121 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-// --- Calendar with Prev/Next navigation and animations (index.html) ---
-const calendarHeader = document.getElementById("calendarHeader");
-const calendarBody = document.getElementById("calendarBody");
-if (calendarHeader && calendarBody) {
-  const monthNames = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-  ];
+  // --- Calendar with Prev/Next navigation and animations (index.html) ---
+  const calendarHeader = document.getElementById("calendarHeader");
+  const calendarBody = document.getElementById("calendarBody");
+  if (calendarHeader && calendarBody) {
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
 
-  // Track current year and month to navigate calendar
-  let currentYear = new Date().getFullYear();
-  let currentMonth = new Date().getMonth();
+    // Track current year and month to navigate calendar
+    let currentYear = new Date().getFullYear();
+    let currentMonth = new Date().getMonth();
 
-  function formatDateISO(y, m, d) {
-    const mm = (m + 1).toString().padStart(2, "0");
-    const dd = d.toString().padStart(2, "0");
-    return `${y}-${mm}-${dd}`;
-  }
+    function formatDateISO(y, m, d) {
+      const mm = (m + 1).toString().padStart(2, "0");
+      const dd = d.toString().padStart(2, "0");
+      return `${y}-${mm}-${dd}`;
+    }
 
-  function renderCalendar(year, month) {
-    calendarHeader.innerHTML = `
+    function renderCalendar(year, month) {
+      calendarHeader.innerHTML = `
       <button id="prevMonthBtn" aria-label="Previous Month">&lt;</button>
       <span>${monthNames[month]} ${year}</span>
       <button id="nextMonthBtn" aria-label="Next Month">&gt;</button>
     `;
 
-    // Add a fade-out animation before rebuilding the calendar
-    calendarBody.style.opacity = 0;
+      // Add a fade-out animation before rebuilding the calendar
+      calendarBody.style.opacity = 0;
 
-    setTimeout(() => {
-      calendarBody.innerHTML = ""; // Clear previous
+      setTimeout(() => {
+        calendarBody.innerHTML = ""; // Clear previous
 
-      const firstDay = new Date(year, month, 1).getDay();
-      const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-      const workoutArray = JSON.parse(localStorage.getItem("workoutHistory")) || [];
-      const workoutHistory = {};
-      workoutArray.forEach(entry => {
-        workoutHistory[entry.date] = entry;
-      });
-
-      let row = document.createElement("tr");
-
-      // Fill empty cells before first day
-      for (let i = 0; i < firstDay; i++) {
-        row.appendChild(document.createElement("td"));
-      }
-
-      for (let day = 1; day <= daysInMonth; day++) {
-        const dateStr = formatDateISO(year, month, day);
-        const cell = document.createElement("td");
-        cell.textContent = day;
-
-        const today = new Date();
-        if (year === today.getFullYear() && month === today.getMonth() && day === today.getDate()) {
-          cell.classList.add("today");
-        }
-
-        if (workoutHistory[dateStr]) {
-          cell.classList.add("completed");
-          const label = document.createElement("div");
-          label.className = "goal-label";
-          label.textContent = workoutHistory[dateStr].goal;
-          cell.appendChild(label);
-        }
-
-        cell.addEventListener("click", () => {
-          if (!workoutHistory[dateStr]) {
-            alert("No workout logged on this day.");
-            return;
-          }
-          showWorkoutPopup(dateStr, workoutHistory[dateStr]);
+        const workoutArray = JSON.parse(localStorage.getItem("workoutHistory")) || [];
+        const workoutHistory = {};
+        workoutArray.forEach(entry => {
+          workoutHistory[entry.date] = entry;
         });
 
-        row.appendChild(cell);
+        let row = document.createElement("tr");
 
-        if ((firstDay + day) % 7 === 0 || day === daysInMonth) {
-          calendarBody.appendChild(row);
-          row = document.createElement("tr");
+        // Fill empty cells before first day
+        for (let i = 0; i < firstDay; i++) {
+          row.appendChild(document.createElement("td"));
         }
-      }
 
-      // Fade-in animation after content update
-      calendarBody.style.opacity = 1;
+        for (let day = 1; day <= daysInMonth; day++) {
+          const dateStr = formatDateISO(year, month, day);
+          const cell = document.createElement("td");
+          cell.textContent = day;
 
-      // Add listeners to prev/next buttons
-      const prevBtn = document.getElementById("prevMonthBtn");
-      const nextBtn = document.getElementById("nextMonthBtn");
+          const today = new Date();
+          if (year === today.getFullYear() && month === today.getMonth() && day === today.getDate()) {
+            cell.classList.add("today");
+          }
 
-      prevBtn.addEventListener("click", () => {
-        if (currentMonth === 0) {
-          currentMonth = 11;
-          currentYear--;
-        } else {
-          currentMonth--;
+          if (workoutHistory[dateStr]) {
+            cell.classList.add("completed");
+            const label = document.createElement("div");
+            label.className = "goal-label";
+            label.textContent = workoutHistory[dateStr].goal;
+            cell.appendChild(label);
+          }
+
+          cell.addEventListener("click", () => {
+            if (!workoutHistory[dateStr]) {
+              alert("No workout logged on this day.");
+              return;
+            }
+            showWorkoutPopup(dateStr, workoutHistory[dateStr]);
+          });
+
+          row.appendChild(cell);
+
+          if ((firstDay + day) % 7 === 0 || day === daysInMonth) {
+            calendarBody.appendChild(row);
+            row = document.createElement("tr");
+          }
         }
-        renderCalendar(currentYear, currentMonth);
-      });
 
-      nextBtn.addEventListener("click", () => {
-        if (currentMonth === 11) {
-          currentMonth = 0;
-          currentYear++;
-        } else {
-          currentMonth++;
-        }
-        renderCalendar(currentYear, currentMonth);
-      });
+        // Fade-in animation after content update
+        calendarBody.style.opacity = 1;
 
-    }, 300); // 300ms fade-out duration, adjust as you like
+        // Add listeners to prev/next buttons
+        const prevBtn = document.getElementById("prevMonthBtn");
+        const nextBtn = document.getElementById("nextMonthBtn");
+
+        prevBtn.addEventListener("click", () => {
+          if (currentMonth === 0) {
+            currentMonth = 11;
+            currentYear--;
+          } else {
+            currentMonth--;
+          }
+          renderCalendar(currentYear, currentMonth);
+        });
+
+        nextBtn.addEventListener("click", () => {
+          if (currentMonth === 11) {
+            currentMonth = 0;
+            currentYear++;
+          } else {
+            currentMonth++;
+          }
+          renderCalendar(currentYear, currentMonth);
+        });
+
+      }, 300); // 300ms fade-out duration, adjust as you like
+    }
+
+    // Initial render
+    renderCalendar(currentYear, currentMonth);
   }
-
-  // Initial render
-  renderCalendar(currentYear, currentMonth);
-}
 
   // Close popup when button is clicked
   const closeBtn = document.getElementById("closePopup");

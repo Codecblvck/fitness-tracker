@@ -1,0 +1,51 @@
+/* variables.css */
+:root {
+  --primary-color: #4a90e2;
+  --bg: #d6deea;
+  --text: #111111;
+  --accent: #007bff;
+  --navbar-bg: #858383a2;
+  --card-bg: #ffffff;
+
+  /* Neutral Palette */
+  --color-background: #fdfdfd;
+  --color-surface: #ffffff;
+  --color-border: #e5e5e5;
+  --color-text: #2b2b2b;
+  --color-text-light: #666666;
+
+  /* Layout-Specific */
+  --header-bg: var(--color-primary);
+  --header-text: #ffffff;
+  --footer-bg: var(--color-primary);
+  --footer-text: #eeeeee;
+
+  /* Fonts */
+  --logo-font: "Raleway", sans-serif; 
+  --font-heading: "Lato", sans-serif;
+  --font-base: "Lato", sans-serif; 
+
+  /* Font Sizes */
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.5rem;
+
+  /* Font Weights */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-bold: 700;
+}
+
+body.dark-mode {
+  --bg: #111111;
+  --text: #ffffff;
+  --accent: #66ccff;
+  --card-bg: #1e1e2f;
+  background-color: var(--bg);
+  color: var(--text);
+}

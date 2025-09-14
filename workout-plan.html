@@ -8,7 +8,11 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Lato&family=Merriweather&family=Poppins&family=Raleway&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="./css/styles.css" />
+  <!-- <link rel="stylesheet" href="./css/styles.css" /> -->
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/var-names.css">
+  <link rel="stylesheet" href="./css/util.css">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 
@@ -33,19 +37,19 @@
       </nav>
     </header>
     <main>
-      <div class="workout-container" id="workoutPage">
-        <h2>Your Personalized Workout Plan</h2>
+      <div class="bd-wrapper" id="workoutPage"> 
         <section>
+          <h1>Your Personalized Workout Plan</h1>
           <div class="progress-bar">
             <div class="progress-fill" id="progressFill"></div>
           </div>
           <span class="progress-label" id="progressText">0% complete</span>
         </section>
-        <section>
-          <div id="workoutList" class="workout-list"></div>
+        <section id="workoutList" class="workout-list">
+          <!-- workout list load in here from workout.js -->
         </section>
 
-        <button id="finishWorkout">Finish Workout</button>
+        <button class="btn" id="finishWorkout">Finish Workout</button>
 
         <p id="motivation" class="hidden">Keep going, you're doing great!</p>
       </div>

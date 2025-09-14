@@ -64,19 +64,23 @@ if (alreadyDone) {
 if (container) {
   exercises.forEach((exercise) => {
     const card = document.createElement("div");
-    card.className = "exercise";
+    card.className = "exer-card main-card ";
 
     const isCompleted = completedSet.has(exercise.name);
     if (isCompleted) {
       totalCalories += exercise.calories;
     }
 
-    card.innerHTML = `
-      <div class="exercise-icon">${exercise.icon}</div>
-      <p>${exercise.name} – ${exercise.sets}</p>
-      <button class="toggle-btn" ${isCompleted ? "disabled" : ""}>
+    card.innerHTML = ` 
+    <div class="exercise-content">
+      <div class="exer-f"><span>${exercise.icon}</span>
+        <p>${exercise.name} – ${exercise.sets}</p>
+      </div>
+      
+      <button  class="toggle-btn btn" ${isCompleted ? "disabled" : ""}>
         ${isCompleted ? "Done" : "Mark Done"}
       </button>
+    </div>
     `;
 
     const btn = card.querySelector("button");

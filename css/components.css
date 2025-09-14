@@ -1,0 +1,355 @@
+/* ====== Header and Navigation ====== */
+header {
+  width: 100%;
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 50%;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+}
+
+.logo {
+  font-family: var(--logo-font);
+  font-weight: var(--font-bold);
+  font-size: var(--text-2xl);
+  color: var(--primary-color);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--navbar-bg);
+  flex-direction: column;
+  display: none;
+  padding: 0 2rem;
+}
+
+.nav-links.show {
+  display: flex;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  font-size: 17px;
+}
+
+a {
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  transform: translateY(-3px);
+}
+
+a::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: -9px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #a6a6a6;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+}
+
+a:hover::before {
+  transform: scaleY(1);
+}
+
+@media (min-width: 600px) {
+   .nav-links {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    padding: 0;
+  }
+}
+/* ends here */
+
+/* ===== HERO SECTION ====== */
+.intro-section {
+  padding: 1rem 1rem;
+  display: flex;
+  justify-content: center;
+  background: var(--bg, #f7f7f7);
+}
+
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.hero-img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+}
+
+/* ====== CARDS ====== */
+.main-card {
+  max-width: 1200px;
+  align-items: center;
+  margin: 1.5rem 0;
+  background-color: var(--card-bg);
+  color: var(--text, #222);
+  padding: 1rem;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+/* form card */
+.user-form {
+  background: var(--card-bg, #fff);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user-form h2 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: var(--text, #222);
+}
+
+.user-form label {
+  display: block;
+  margin-top: 1rem;
+  color: var(--text-secondary, #555);
+}
+
+.user-form input[type="text"],
+.user-form select {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.3rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.log,
+.history {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: var(--card-bg, #fff);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.log h2,
+.history h2 {
+  color: var(--text, #222);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+#todayLog {
+  font-size: 1.1rem;
+  color: var(--text-secondary, #555);
+  min-height: 3rem; 
+}
+
+#historyList {
+  list-style-type: disc;
+  padding-left: 1.2rem;
+  color: var(--text-secondary, #555);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#historyList li {
+  margin-bottom: 0.6rem;
+}
+
+/* exercise card */
+.exer-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: var(--text, #222);
+}
+
+.exer-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.exer-f {
+  display: flex;
+  gap: 1rem;
+}
+
+.exer-f span {
+  font-size: var(--text-4xl);
+}
+
+.exer-f p{
+ color: var(--text, #222);
+}
+
+@media (min-width: 600px) {
+  .main-card {
+    width: 500px;
+    margin: 1.5rem;
+  }
+
+  .exercise-card {
+    width: 500px;
+    margin: 1.5rem;
+  }
+
+  .exercise {
+    margin: auto;
+    width: 500px;
+  }
+
+  .progress-bar {
+    height: 12px;
+  }
+}
+
+/* ===== BUTTON STYLES ===== */
+.btn {
+  max-width: 300px;
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 1.1rem;
+  background-color: var(--accent, #00c2cb);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* form button */
+.user-form button:hover {
+  background-color: var(--primary-color, #008b8b);
+}
+
+.user-form button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--btn-primary-focus, var(--accent));
+}
+
+/* confirmination button */
+.confirm-btn {
+  width: 100%;
+  font-size: 1.2rem;
+  margin: 2rem 0 0.5rem;
+  background-color: #267347;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.confirm-btn:hover {
+  background-color: #1d5936;
+}
+
+/*  buttons inside exercises */
+.toggle-btn {
+  border: 1px solid #555;
+}
+
+.toggle-btn.completed {
+  background-color: #333;
+  color: #999;
+  cursor: default;
+}
+
+/* finish workout button */
+#finishWorkout {
+  font-weight: bold;
+  background-color: #4caf50;
+}
+
+#finishWorkout:hover {
+  animation: pulse 0.4s ease-in-out;
+}
+
+/* === BUTTON RESPONSIVE STYLE === */
+@media (min-width: 600px) {
+  .btn {
+    max-width: 800px;
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 1rem;
+    margin: 3rem 0 0.5rem;
+  }
+
+  .confirm-btn {
+    max-width: 500px;
+    width: 250px;
+    font-size: 1.2rem;
+    padding: 1rem;
+    margin: 3rem 0 0.5rem;
+  }
+
+  #finishWorkout {
+    width: 500px;
+    font-weight: bold;
+    background-color: #4caf50;
+  }
+}
+/* button style end */
+
+/* ====== Progress Bar ====== */
+.progress-bar {
+  background: #555;
+  border-radius: 5px;
+  height: 10px;
+  margin: 10px 0;
+}
+/* Ends Here */
+
+/* ====== Footer ====== */
+.site-footer {
+  background-color: #1f2e3d;
+  color: white;
+  padding: 2rem 0 5rem;
+  text-align: center;
+}
+
+.site-footer a {
+  color: #6cf;
+  text-decoration: none;
+}
+
+.site-footer a:hover,
+.site-footer a:focus {
+  outline: none;
+}
+
+@media (min-width: 600px) {
+  .site-footer {
+    padding: 4rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+}

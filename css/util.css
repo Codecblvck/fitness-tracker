@@ -1,0 +1,422 @@
+
+
+/* ====== Hamburger Menu (Mobile) ====== */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text);
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ====== Dark Mode Toggle ====== */
+.dark-mode-toggle {
+  position: relative;
+  width: 50px;
+  height: 24px;
+  display: inline-block;
+}
+
+.dark-mode-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.dark-mode-toggle .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: 0.4s;
+}
+
+.dark-mode-toggle .slider::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.dark-mode-toggle input:checked + .slider {
+  background-color: var(--accent);
+}
+
+.dark-mode-toggle input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+/* ====== CONFIRMATION PAGE STYLE ====== */
+.confirm-pg {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem;
+}
+
+.confirmed-msg {
+  opacity: 0;
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  right: 0.5rem;
+  left: 0.2rem;
+  overflow: hidden;
+}
+
+.confirmed-pg h1 {
+  margin: 1rem;
+}
+.confirmed-msg h1 {
+  margin: 1rem;
+}
+
+.loading-msg {
+  position: absolute;
+  width: 200px;
+  text-align: center;
+  margin: auto;
+  right: 0.5rem;
+  left: 0.2rem;
+  top: 2.5rem;
+  padding: 0 1rem 0;
+}
+
+.done-message {
+  position: absolute;
+  right: 1rem;
+  padding: 0 1rem;
+  margin: auto;
+}
+
+.illustration {
+  position: relative;
+  bottom: 0;
+  margin: auto;
+  font-size: 4rem;
+}
+
+.subtitle {
+  color: #aaa;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* ====== completion  ====== */
+.progress-fill {
+  background: #4caf50;
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.5s ease-in-out;
+  align-items: center;
+}
+
+.progress-label {
+  text-align: right;
+  margin-bottom: 20px;
+  color: #aaa;
+}
+
+.completed {
+  background-color: #4caf50;
+}
+
+/* ====== Motivation Text ====== */
+#motivation {
+  margin-top: 15px;
+  font-style: italic;
+  font-size: 14px;
+  text-align: center;
+  color: #aaa;
+}
+
+/* ====== Utility Classes ====== */
+.hidden {
+  display: none;
+}
+
+/* ============== Animations ===========*/
+.fade-slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.reveal {
+  transform: scale(0.95);
+  animation: revealContent 0.6s ease-out forwards;
+}
+@keyframes revealContent {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.loader {
+  border: 4px solid #ddd;
+  border-top: 4px solid var(--accent, #00c2cb);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 3rem auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.6s ease-out forwards;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+/* animation styles ends */
+
+.calendar-section {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin: 2rem 0;
+  max-width: 900px;
+  padding: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.calendar-section:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.calendar-section h2 {
+  text-align: center;
+  color: var(--text);
+}
+
+/* Month-Year Header spanning full row */
+table#calendarTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  table-layout: fixed;
+}
+
+#calendarTable th,
+#calendarTable td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  vertical-align: top;
+  height: 80px;
+  position: relative;
+}
+
+#calendarTable td.today {
+  background-color: #e0f7fa;
+  font-weight: bold;
+}
+
+#calendarTable td.completed {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+/* Label inside completed day cells */
+.goal-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  margin-top: 0.25rem;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  padding: 2px 4px;
+  color: var(--accent);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  text-align: center;
+}
+
+/* Popup Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Popup Content Box */
+.popup-content {
+  background-color: var(--card-bg, #fff);
+  color: var(--text, #000);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+  font-family: inherit;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: var(--text, #000);
+}
+
+/* List Styling */
+#popupExercises {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  list-style: none;
+}
+
+#popupExercises li {
+  margin: 0.3rem 0;
+}
+
+/* Hidden Class */
+.hidden {
+  display: none;
+}
+
+/* ====== Responsive Design ====== */
+@media (min-width: 600px) {
+  .hamburger {
+    display: none;
+  }
+
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .log,
+  .history {
+    padding: 2rem 3rem;
+  }
+
+  .progress-bar {
+    height: 12px;
+  }
+
+  .confirmed-msg {
+    max-width: 900px;
+    margin: auto;
+    overflow-x: hidden;
+  }
+
+  .confirmed-msg h1 {
+    margin-top: 1.5rem;
+  }
+
+  .confirmed-msg {
+    align-items: center;
+    width: 600px;
+  }
+
+  .loading-msg {
+    width: 100%;
+    margin: auto;
+    right: 0;
+    left: 0;
+    top: 4rem;
+    padding: 0 1rem 0;
+  }
+
+  .done-message {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .exercise {
+    margin: auto;
+    width: 500px;
+  }
+
+
+
+  .calendar-section {
+    max-width: 600px;
+    margin: auto;
+  }
+
+  .calendar-day {
+    padding: 1rem 1.72rem;
+    margin: auto;
+  }
+
+  .hero-img {
+    margin-top: 3rem;
+    max-width: 550px;
+  }
+}

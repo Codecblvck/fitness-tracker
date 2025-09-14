@@ -1,0 +1,113 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-heading);
+  background-color: var(--bg);
+}
+
+.bd-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+/* ========== TOPOGRAPHY ========== */
+h1,
+h2,
+h3,
+p {
+  font-family: var(--font-heading);
+  text-align: center;
+}
+
+#workoutPage h1 {
+  margin: 1rem 0 2rem;
+}
+
+h2 {
+  font-size: var(--text-2xl);
+}
+
+h3 {
+  font-size: var(--text-xl);
+}
+
+.highlight {
+  color: var(--accent, #00c2cb);
+  font-weight: var(--font-bold);
+  margin: auto;
+}
+
+p {
+  line-height: 1.6;
+}
+
+.greeting h1 {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-bold);
+  color: var(--text, #222);
+}
+
+.greeting .highlight {
+  color: var(--accent, #00c2cb);
+}
+
+.greeting p {
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--text-secondary, #666);
+  margin: 1rem 0;
+}
+
+.quote {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: #555;
+  margin: 1rem auto;
+  max-width: 400px;
+  padding-left: 1em;
+}
+/* ENDS */
+
+.confirming-msg {
+  position: relative;
+  overflow-y: auto;
+  margin: auto;
+}
+
+/* ========== RESPONSIVE STYLE ========== */
+@media (min-width: 600px) {
+  body {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  h2 {
+    font-size: var(--text-3xl);
+  }
+
+  h3 {
+    font-size: var(--text-2xl);
+  }
+
+  p {
+    font-weight: var(--font-bold);
+    padding: 0 5rem;
+  }
+
+  .quote {
+    font-size: var(--text-lg);
+  }
+}
